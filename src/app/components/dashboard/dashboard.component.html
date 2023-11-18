@@ -1,0 +1,64 @@
+
+    <div class="container-fluid">
+        <div class="welcome">
+            <div><h3>Welcome</h3></div>
+            <div><button class="logout-button" (click)="logout()">Logout</button></div>
+        </div>
+       
+        <div class="row">
+          <div class="col-md-4 col-sm-12 mt-5 mb-3">
+            <div class="card border-0 shadow p-3">
+              <div class="form-floating mb-3">
+                <h5 class="text-center text-dark">Add Student</h5>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="firstName" name="firstname" [(ngModel)]="firstname">
+                <label for="firstname">First Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="lastName" name="lastname" [(ngModel)]="lastname">
+                <label for="lastname">Last Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+                <label for="email">Email address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="mobileno">
+                <label for="mobile">Mobile no</label>
+              </div>
+              <button type="button" class="btn btn-outline-success" (click)="addStudents()">Add Student</button>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-12 mt-2">
+              <div class="card p-3 shadow">
+                  <div class="card-body">
+                      <h5 class="text-dark text-center mb-4">Student List</h5>
+                      <div class="table-responsive custom-scrollbar">
+                          <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th colspan="2" scope="col">Student Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile No</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let student of studentList">
+                        <td colspan="2">{{student.firstname}} {{student.lastname}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.mobileno}}</td>
+                        <td>
+                          <button class="btn btn-outline-danger" (click)="deleteStudent(student)">Delete</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      

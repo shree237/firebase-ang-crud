@@ -1,1 +1,128 @@
-/* You can add global styles to this file, and also import other style files */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: sans-serif;
+    overflow-x: hidden;
+  background-color: #323236e8;
+  
+  }
+  
+
+
+  .row {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  
+  /* this is  user auth */
+  
+  .user-auth {
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   height: 100vh;
+   width: 100%;
+  }
+  .user-auth h3{
+  
+        color: ghostwhite;
+        padding: 7px;
+        border-bottom: 2px solid red;
+        
+        margin-bottom: 5%;
+    }
+  
+  
+  .signup-form, .login-form {
+   background-color: #fff;
+   border-radius: 20px;
+   box-shadow:3px 3px 15px rgba(0, 0, 0, 0.4);
+   text-align: center;
+   padding: 40px;
+   margin: 0 auto;
+  }
+
+  .common-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-title {
+   font-size: 24px;
+   color: #333;
+   margin-bottom: 30px;
+   font-family: 'Pacifico', cursive;
+  
+  }
+  
+  .form-button {
+  background-color: #3498db;
+  color: #fff;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+
+  .logout-button{
+    background-color: #3498db;
+    color: #fff;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .google-button{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+  }
+  .form-button:hover {
+  background-color: #2980b9;
+  }
+  button:disabled{
+  cursor: not-allowed;
+  }
+  
+  .form-input {
+   width: 100%;
+   padding: 10px;
+   margin: 5px 0;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 16px;
+  }
+  
+  
+  @media (max-width: 768px) {
+
+    .form-title{
+        font-size: 20px
+    }
+    .signup-form, .login-form {
+      margin-top: 15%;
+    }
+  }

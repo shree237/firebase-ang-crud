@@ -1,0 +1,20 @@
+
+<div class="user-auth">
+    <h3>Student Management System</h3>
+    <div class="signup-form">
+  
+        <h1 class="form-title">Register</h1>
+  
+        <form class="common-form">
+            <label>Email</label>
+            <input type="email" class="form-input" name="email" [(ngModel)]="email" >
+            <label>Password</label>
+            <input type="password" class="form-input" name="password" [(ngModel)]="password">
+            <button type="button" class="form-button" (click)="register()">Register</button>
+
+            <div class="mt-4">
+                <a routerLink="/login" style="text-decoration: none;">Already Account ? <span class="text-danger">Login</span></a>
+            </div>          
+        </form>
+    </div>
+</div>

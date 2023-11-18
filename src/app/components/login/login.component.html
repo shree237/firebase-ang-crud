@@ -1,0 +1,38 @@
+
+<div class="user-auth">
+    <h3>Student Management System</h3>
+    <div class="login-form">
+  
+        <h1 class="form-title">Login</h1>
+  
+        <form class="common-form">
+            <!-- <label >Email</label> -->
+            <input type="email" class="form-input" name="email" [(ngModel)]="email" placeholder="Enter Email here">
+            <!-- <label>Password</label> -->
+            <input type="password" class="form-input" name="password" [(ngModel)]="password" placeholder="Enter Password">
+            <button type="button" class="form-button" (click)="login()">Login</button>
+
+            <div class="mt-4">
+            <a routerLink="/register" style="text-decoration: none;">Dont have Account ? <span class="text-danger">Register</span></a>
+            </div>
+            <div class="mb-3 mt-2">
+            <a routerLink="/forgot-pass" class="text-dark" >Forgot Password</a>
+            </div>
+            <button class="google-button text-center">
+                
+                <a (click)="signInWithGoogle()" style="text-decoration: none; cursor: pointer;">
+                    
+                        
+                            <img src="../../../assets/icons8-google-48.png" alt="" height="24" width="24">  Google 
+                        
+                    
+                </a>
+            </button>
+            <button class="bg-dark google-button text-white">
+                <a (click)="signInWithGithub()" style="text-decoration: none; cursor: pointer;"> 
+                            <img src="../../../assets/3d-fluency-github-logo.png" alt="" height="24" width="24"> GitHub 
+                </a>
+            </button>
+        </form>
+    </div>
+</div>

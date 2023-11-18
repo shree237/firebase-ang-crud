@@ -1,0 +1,35 @@
+/* Add this to your global styles or component styles */
+
+.welcome{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+.welcome h3{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.custom-scrollbar {
+    overflow-x: auto;
+    max-height: 300px; /* Adjust the maximum height as needed */
+    border: 1px solid #e0e0e0; /* Border color for better visibility */
+    border-radius: 8px; /* Border radius for a rounded appearance */
+    padding: 10px; /* Optional padding for better appearance */
+  }
+  
+  /* Optional: Adjust the scrollbar styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #6c757d; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Border radius of the thumb */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #f8f9fa; /* Color of the scrollbar track */
+    border-radius: 8px; /* Border radius of the track */
+  }
+  
