@@ -1,3 +1,4 @@
+@import '~ngx-toastr/toastr';
 
 *{
     margin: 0;
@@ -7,7 +8,7 @@
   body{
     font-family: sans-serif;
     overflow-x: hidden;
-  background-color: #323236e8;
+    background-color: #dcf2ffe8;
   
   }
   
@@ -28,14 +29,15 @@
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   height: 100vh;
+   height: 80vh;
    width: 100%;
+
   }
   .user-auth h3{
   
         color: ghostwhite;
         padding: 7px;
-        border-bottom: 2px solid red;
+        /* border-bottom: 2px solid red; */
         
         margin-bottom: 5%;
     }
@@ -43,11 +45,20 @@
   
   .signup-form, .login-form {
    background-color: #fff;
-   border-radius: 20px;
+   /* border-radius: 20px; */
    box-shadow:3px 3px 15px rgba(0, 0, 0, 0.4);
    text-align: center;
    padding: 40px;
    margin: 0 auto;
+  }
+  .verify-mail{
+    
+    background-color: #fff;
+   box-shadow:3px 3px 15px rgba(0, 0, 0, 0.4);
+   text-align: center;
+   padding: 20px;
+   margin: 0 auto;
+
   }
 
   .common-form {
@@ -60,8 +71,7 @@
    font-size: 24px;
    color: #333;
    margin-bottom: 30px;
-   font-family: 'Pacifico', cursive;
-  
+ 
   }
   
   .form-button {

@@ -1,0 +1,22 @@
+.home {
+    background-image: url(../../../assets/background-image.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}
+
+.des{
+    margin-top: 40px;
+    
+}
+.des h6{
+    font-family: cursive;
+    width: 80%;
+    
+    margin: 0 auto;
+}
+
+
+

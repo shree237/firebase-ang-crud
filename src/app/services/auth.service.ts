@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
-import {GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider} from '@angular/fire/auth'
+import {GoogleAuthProvider, GithubAuthProvider} from '@angular/fire/auth'
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +17,11 @@ export class AuthService {
     this.fireauth.signInWithEmailAndPassword(email,password).then(res=>{
       localStorage.setItem('token','true')
       
-      if(res.user?.emailVerified == true) {
-        
+      if(res.user?.emailVerified == true) {        
         this.router.navigate(['dashboard'])
       } else {
         this.router.navigate(['/verify-email'])
       }
-
     }, err =>{
       alert(err.message)
       this.router.navigate(['/login'])
@@ -53,7 +51,7 @@ export class AuthService {
     logout(){
       this.fireauth.signOut().then(()=>{
         localStorage.removeItem('token')
-        this.router.navigate(['/login'])
+        this.router.navigate(['/home'])
 
       }, err =>{
         alert(err.message)
@@ -61,16 +59,25 @@ export class AuthService {
     }
 
 
-  // Forgot Password 
+    // Forgot 
 
-    forgotPassword(email:string){
-      this.fireauth.sendPasswordResetEmail(email).then(()=>{
-        this.router.navigate(['/verify-email'])
-
-      }, err=>{
-        alert('something went wrong')
-      })
+forgotPassword(email: string) {
+  
+  this.fireauth.fetchSignInMethodsForEmail(email).then((user) => {
+    if (user && user.length > 0) {
+      this.fireauth.sendPasswordResetEmail(email).then(() => {
+        this.router.navigate(['/verify-email']);
+      },err=>{
+        alert('Something went wrong');
+      });
+    }else {
+      alert('User with the provided email does not exist.');
     }
+
+  });
+}
+
+    
 
   // Verify Mail
 
@@ -79,11 +86,12 @@ export class AuthService {
     user.sendEmailVerification().then((res:any)=>{
 
       this.router.navigate(['/verify-email'])
-
     }, (err:any) =>{
       alert('something went wrong , Not able to send Mail')
 
     })
+    
+    
   }
     
 
