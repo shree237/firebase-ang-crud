@@ -7,18 +7,24 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddResultComponent } from './components/add-result/add-result.component';
+import { SearchResultComponent } from './components/search-result/search-result.component';
+
 
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'home/login', component:LoginComponent},
+  {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'dashboard', component:DashboardComponent},
   { path: 'add-result', component: AddResultComponent },
   { path: 'editresult/:id', component: AddResultComponent },
   {path:'verify-email', component:VerifyEmailComponent},
   {path:'forgot-pass', component:ForgotPasswordComponent},
+  {path:'search-result', component:SearchResultComponent},
+  {path:'home/search-result', component:SearchResultComponent},
+  {path:'search-result/result/:rollno', component:SearchResultComponent}
 
 ];
 

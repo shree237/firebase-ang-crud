@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
 import {GoogleAuthProvider, GithubAuthProvider} from '@angular/fire/auth'
+import { fetchSignInMethodsForEmail } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -63,19 +64,24 @@ export class AuthService {
 
 forgotPassword(email: string) {
   
-  this.fireauth.fetchSignInMethodsForEmail(email).then((user) => {
-    if (user && user.length > 0) {
-      this.fireauth.sendPasswordResetEmail(email).then(() => {
-        this.router.navigate(['/verify-email']);
-      },err=>{
-        alert('Something went wrong');
-      });
-    }else {
-      alert('User with the provided email does not exist.');
-    }
+  // this.fireauth.fetchSignInMethodsForEmail(email).then((user) => {
+  //   if (user && user.length > 0) {
+      
+  //   }else {
+  //     alert('User with the provided email does not exist.');
+  //   }
 
+  // });
+
+  this.fireauth.sendPasswordResetEmail(email).then(() => {
+    this.router.navigate(['/verify-email']);
+  },err=>{
+    alert('Something went wrong');
   });
+
 }
+
+
 
     
 

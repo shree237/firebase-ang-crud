@@ -1,87 +1,19 @@
-<!-- 
-    <div class="container-fluid">
-        <div class="welcome">
-       
-     
-        </div>
-       
-        <div class="row">
 
-
-          <div class="col-md-4 col-sm-12 mt-5 mb-3">
-            <div class="card border-0 shadow p-3">
-              <div class="form-floating mb-3">
-                <h5 class="text-center text-dark">Add Student</h5>
-              </div>
-
-              <form (ngSubmit)="id ? updateStudent() : addStudents()">
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="firstName" name="firstname" [(ngModel)]="firstname">
-                  <label for="firstname">First Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="lastName" name="lastname" [(ngModel)]="lastname">
-                  <label for="lastname">Last Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
-                  <label for="email">Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="mobileno">
-                  <label for="mobile">Mobile no</label>
-                </div>
-                <button type="submit" class="btn btn-outline-success">
-                  {{ id ? 'Update Student' : 'Add Student' }}
-                </button>
-              </form>
-            </div>
-          </div>
-          
-          <div class="col-md-8 col-sm-12 mt-2">
-              <div class="card p-3 shadow">
-                  <div class="card-body">
-                      <h5 class="text-dark text-center mb-4">Student List</h5>
-                      <div class="table-responsive custom-scrollbar">
-                          <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th colspan="2" scope="col">Student Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Mobile No</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let student of studentList">
-                        <td colspan="2">{{student.firstname}} {{student.lastname}}</td>
-                        <td>{{student.email}}</td>
-                        <td>{{student.mobileno}}</td>
-                        <td>
-                          <button class="btn btn-outline-primary" (click)="editStudent(student)">Edit</button>
-                          <button class="btn btn-outline-danger" (click)="deleteStudent(student)">Delete</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-       -->
 
 
        <div class="container mt-4">
         <div class="card">
           <div class="card-body">
-       
-            <h3 class="text-center">Result List </h3>
+            <div class="d-flex" style="justify-content:space-evenly;">
+              <h3 class="text-center">Result List </h3>
+              <button class="btn btn-outline-success" routerLink="/add-result">Add result</button>
+            </div>
+           
             <hr>
            
             <h5 style="margin-top: 30px;" *ngIf="results.length == 0">No data to display</h5>
-            <div class="table-responsive mt-5">
+         <div class="search-bar"> <input type="text" [(ngModel)]="searchText" placeholder="Search by Roll.no or Name" class="form-control mb-3"></div>  
+            <div class="table-responsive mt-3">
               <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                   <tr>
@@ -96,7 +28,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let result of results">
+                  <tr *ngFor="let result of results | customFilter: searchText">
                     <td>{{ result.rollno + ')' }}</td>
                     <td>{{ result.name }}</td>
                     <td>{{ result.math }}</td>

@@ -6,6 +6,15 @@
     align-items: center;
     margin: 10px;
 }
+
+.search-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar input{
+  width: 50%;
+}
 .welcome h3{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

@@ -16,6 +16,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AddResultComponent } from './components/add-result/add-result.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchResultComponent } from './components/search-result/search-result.component';
+import { CustomFilterPipe } from './custom-filter.pipe';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
 
 
 
@@ -39,16 +46,23 @@ const firebaseConfig = {
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    AddResultComponent
+    AddResultComponent,
+    SearchResultComponent,
+    CustomFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    provideFirebaseApp(() => initializeApp({"projectId":"student-management-syste-f3706","appId":"1:158842838903:web:612efdebbd26d983ff0b72","storageBucket":"student-management-syste-f3706.appspot.com","apiKey":"AIzaSyBrblp2Xi3FOEDgQphKZdbCAqY9Df2A1IQ","authDomain":"student-management-syste-f3706.firebaseapp.com","messagingSenderId":"158842838903"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

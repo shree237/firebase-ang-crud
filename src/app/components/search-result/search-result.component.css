@@ -1,0 +1,64 @@
+@media print {
+    body.print-mode * {
+      visibility: visible;
+    }
+    body.print-mode {
+      position: static;
+    }
+  }
+
+  /* Add this CSS to your component's styles or in a global stylesheet */
+
+/* Add this CSS to your component's styles or in a global stylesheet */
+
+.container {
+    max-width: 800px; /* Adjust the maximum width as needed */
+  }
+  
+  .table {
+ 
+    margin-bottom: 1rem;
+    color: #212529;
+    
+ 
+    background-color: #f8f9fa; /* Light background color for the table */
+  }
+  .border-end {
+    border-right: 1px solid #dee2e6; /* Border color for the right side */
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    background-color: #007bff; /* Header background color */
+    color: #fff; /* Header text color */
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.2); /* Hover effect color */
+  }
+  
+  .table tbody tr {
+    background-color: #343a40; /* Dark background color for table rows */
+    color: #fff; /* Text color for table rows */
+  }
+  
+  .text-success {
+    color: #28a745;
+  }
+  
+  .text-danger {
+    color: #dc3545;
+  }
+  

@@ -1,0 +1,88 @@
+<!-- result-form.component.html -->
+
+  <div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4>Search Result
+                    </h4>
+
+                    <form class="mt-4"(ngSubmit)="getResult()">
+                    
+                      <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="rollNo">Roll No:</label>
+                        <input type="text" class="form-control mb-3" id="rollNo" [(ngModel)]="rollno" name="rollno" required>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Get Result</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+<!-- result page -->
+
+<div class="container mt-5">
+    <h4 class="text-center">Student Result</h4>
+  
+    <div *ngIf="data">
+      <table class="table table-bordered">
+        <tr>
+          <td class="fw-bold border-end">Name:</td>
+          <td>{{ data.name }}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold border-end">Roll No:</td>
+          <td>{{ data.rollno }}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold border-end">English:</td>
+          <td>{{ data.english }}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold border-end">Math:</td>
+          <td>{{ data.math }}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold border-end">Science:</td>
+          <td>{{ data.science }}</td>
+        </tr>
+  
+        <!-- Add more subject rows as needed -->
+  
+        <tr>
+          <td class="fw-bold border-end">Total:</td>
+          <td>{{ data.total }}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold border-end">Percentage:</td>
+          <td>{{ data.percentage }}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold border-end">
+            Result:
+          </td>
+          <td>
+            <span *ngIf="data.passed; else failed" class="text-success">Pass</span>
+            <ng-template #failed><span class="text-danger">Fail</span></ng-template>
+          </td>
+        </tr>
+      </table>
+  
+      <button class="btn btn-primary mt-3 mb-3" style="display: block; margin: 0 auto;" (click)="printResult()">Print Result</button>
+    </div>
+  
+    <div *ngIf="!data">
+      <p style="text-align: center;">No result found for the provided name and roll number.</p>
+    </div>
+  </div>
+  
