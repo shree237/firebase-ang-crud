@@ -42,3 +42,15 @@
     border-radius: 8px; /* Border radius of the track */
   }
   
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }

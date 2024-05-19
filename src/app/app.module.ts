@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AngularFireModule} from '@angular/fire/compat';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AddResultComponent } from './components/add-result/add-result.component';
@@ -22,6 +22,14 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { ChartComponent } from './chart/chart.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ShreeComponent } from './shree/shree.component';
+
 
 
 
@@ -48,11 +56,18 @@ const firebaseConfig = {
     FooterComponent,
     AddResultComponent,
     SearchResultComponent,
-    CustomFilterPipe
+    CustomFilterPipe,
+    ChartComponent,
+    ShreeComponent
   ],
   imports: [
     BrowserModule,
+    MatPaginatorModule,
     FormsModule,
+    MatSortModule,
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,

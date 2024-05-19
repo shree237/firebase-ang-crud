@@ -1,52 +1,71 @@
 
-
-
        <div class="container mt-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex" style="justify-content:space-evenly;">
-              <h3 class="text-center">Result List </h3>
-              <button class="btn btn-outline-success" routerLink="/add-result">Add result</button>
-            </div>
-           
-            <hr>
-           
-            <h5 style="margin-top: 30px;" *ngIf="results.length == 0">No data to display</h5>
-         <div class="search-bar"> <input type="text" [(ngModel)]="searchText" placeholder="Search by Roll.no or Name" class="form-control mb-3"></div>  
-            <div class="table-responsive mt-3">
-              <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                  <tr>
-                    <th>Roll.no</th>
-                    <th>Name</th>
-                    <th>Math</th>
-                    <th>English</th>
-                    <th>Science</th>
-                    <th>Total</th>
-                    <th>Percentage</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let result of results | customFilter: searchText">
-                    <td>{{ result.rollno + ')' }}</td>
-                    <td>{{ result.name }}</td>
-                    <td>{{ result.math }}</td>
-                    <td>{{ result.english }}</td>
-                    <td>{{ result.science }}</td>
-                    <td>{{ result.total }}</td>
-                    <td>{{ result.percentage }}%</td>
-                    <td>
-                      <div class="d-flex">
-                        <button class="btn btn-outline-primary" [routerLink]="'/editresult/' + result.id">Edit</button>
-                        <button class="btn btn-outline-danger ms-3" (click)="deleteResult(result.id)">Delete</button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <mat-form-field>
+          <input matInput [(ngModel)]="searchText" placeholder="Search by Roll.no or Name" class="form-control mb-3" (keyup)="applyFilter()">
+        </mat-form-field>
+      
+        <div class="table-responsive mt-3">
+          <table mat-table [dataSource]="dataSource" matSort>
+      
+            <!-- Roll.no Column -->
+            <ng-container matColumnDef="rollno">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Roll.no </th>
+              <td mat-cell *matCellDef="let result">{{ result.rollno }}</td>
+            </ng-container>
+      
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+              <td mat-cell *matCellDef="let result">{{ result.name }}</td>
+            </ng-container>
+      
+            <!-- Math Column -->
+            <ng-container matColumnDef="math">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Math </th>
+              <td mat-cell *matCellDef="let result">{{ result.math }}</td>
+            </ng-container>
+      
+            <!-- English Column -->
+            <ng-container matColumnDef="english">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> English </th>
+              <td mat-cell *matCellDef="let result">{{ result.english }}</td>
+            </ng-container>
+      
+            <!-- Science Column -->
+            <ng-container matColumnDef="science">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Science </th>
+              <td mat-cell *matCellDef="let result">{{ result.science }}</td>
+            </ng-container>
+      
+            <!-- Total Column -->
+            <ng-container matColumnDef="total">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+              <td mat-cell *matCellDef="let result">{{ result.total }}</td>
+            </ng-container>
+      
+            <!-- Percentage Column -->
+            <ng-container matColumnDef="percentage">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Percentage </th>
+              <td mat-cell *matCellDef="let result">{{ result.percentage }}%</td>
+            </ng-container>
+      
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let result">
+                <div class="d-flex">
+                  <button class="btn btn-outline-primary" [routerLink]="'/editresult/' + result.id">Edit</button>
+                  <button class="btn btn-outline-danger ms-3" (click)="deleteResult(result.id)">Delete</button>
+                </div>
+              </td>
+            </ng-container>
+      
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          </table>
+      
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10" showFirstLastButtons></mat-paginator>
         </div>
       </div>
       

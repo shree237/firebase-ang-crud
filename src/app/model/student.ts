@@ -6,14 +6,13 @@ export interface Student {
     mobileno:string
 }
 
-export interface product{
-    name:string,
-    price:number,
-    category:string,
-    color:string,
-    image:string,
-    description:string,
-    id:string,
-    quantity:undefined | number,
-    productId:undefined|number
+export interface StudentData {
+    name: string;
+    rollNo: string;
+    english: number;
+    math: number;
+    science: number;
+    total: number;
+    percentage: number;
   }
+  

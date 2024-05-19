@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { HomeComponent } from './components/home/home.component';
 import { AddResultComponent } from './components/add-result/add-result.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path:'forgot-pass', component:ForgotPasswordComponent},
   {path:'search-result', component:SearchResultComponent},
   {path:'home/search-result', component:SearchResultComponent},
-  {path:'search-result/result/:rollno', component:SearchResultComponent}
+  {path:'search-result/result/:rollno', component:SearchResultComponent},
+  { path: 'chart', component: ChartComponent }
 
 ];
 
